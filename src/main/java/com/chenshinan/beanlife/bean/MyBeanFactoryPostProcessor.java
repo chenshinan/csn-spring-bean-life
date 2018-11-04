@@ -24,6 +24,9 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
         System.out.println("BeanFactoryPostProcessor调用postProcessBeanFactory方法");
         BeanDefinition bd = arg0.getBeanDefinition("person");
         bd.getPropertyValues().addPropertyValue("phone", "110");
+
+        BeanDefinition bd2 = arg0.getBeanDefinition("testBean");
+        bd2.getPropertyValues().addPropertyValue("name", "chenshinan");
     }
 
 }

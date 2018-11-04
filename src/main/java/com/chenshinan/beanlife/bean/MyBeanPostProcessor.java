@@ -1,6 +1,7 @@
 package com.chenshinan.beanlife.bean;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
+    @Autowired
+    private TestBeanCopy testBeanCopy;
+    
     public MyBeanPostProcessor() {
         super();
         System.out.println("这是BeanPostProcessor实现类构造器！！");
@@ -18,16 +22,16 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     }
 
     @Override
-    public Object postProcessAfterInitialization(Object arg0, String arg1)
+    public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
-        System.out.println("BeanPostProcessor接口方法postProcessAfterInitialization对属性进行更改！");
-        return arg0;
+        System.out.println("BeanPostProcessor接口方法postProcessAfterInitialization对属性进行更改："+beanName);
+        return bean;
     }
 
     @Override
-    public Object postProcessBeforeInitialization(Object arg0, String arg1)
+    public Object postProcessBeforeInitialization(Object bean, String beanName)
             throws BeansException {
-        System.out.println("BeanPostProcessor接口方法postProcessBeforeInitialization对属性进行更改！");
-        return arg0;
+        System.out.println("BeanPostProcessor接口方法postProcessBeforeInitialization对属性进行更改："+beanName);
+        return bean;
     }
 }

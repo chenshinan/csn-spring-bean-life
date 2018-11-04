@@ -29,8 +29,8 @@ public class MyInstantiationAwareBeanPostProcessor extends
      * @throws BeansException
      */
     @Override
-    public Object postProcessBeforeInstantiation(Class beanClass,String beanName) throws BeansException {
-        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessBeforeInstantiation方法");
+    public Object postProcessBeforeInstantiation(Class beanClass, String beanName) throws BeansException {
+        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessBeforeInstantiation方法：" + beanName);
         return null;
     }
 
@@ -43,24 +43,8 @@ public class MyInstantiationAwareBeanPostProcessor extends
      * @throws BeansException
      */
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName)throws BeansException {
-        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法");
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法：" + beanName);
         return bean;
-    }
-
-    /**
-     * 接口方法、设置某个属性时调用
-     *
-     * @param pvs
-     * @param pds
-     * @param bean
-     * @param beanName
-     * @return
-     * @throws BeansException
-     */
-    @Override
-    public PropertyValues postProcessPropertyValues(PropertyValues pvs,PropertyDescriptor[] pds, Object bean, String beanName)throws BeansException {
-        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessPropertyValues方法");
-        return pvs;
     }
 }

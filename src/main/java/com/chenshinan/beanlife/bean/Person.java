@@ -2,6 +2,7 @@ package com.chenshinan.beanlife.bean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,6 +19,11 @@ public class Person implements BeanFactoryAware, BeanNameAware,
 
     private BeanFactory beanFactory;
     private String beanName;
+
+    @Bean(initMethod = "myInit", destroyMethod = "myDestory")
+    TestInit testInit(){
+        return new TestInit();
+    }
 
     public Person() {
         System.out.println("【构造器】调用Person的构造器实例化");
@@ -75,7 +81,7 @@ public class Person implements BeanFactoryAware, BeanNameAware,
      */
     @Override
     public void setBeanName(String arg0) {
-        System.out.println("【BeanNameAware接口】调用BeanNameAware.setBeanName()");
+        System.out.println("【BeanNameAware接口】调用BeanNameAware.setBeanName()："+arg0);
         this.beanName = arg0;
     }
 

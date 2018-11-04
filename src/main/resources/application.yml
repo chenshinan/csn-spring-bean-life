@@ -1,7 +1,2 @@
 server:
-  port: 8081
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/csn-spock
-    username: root
-    password: root
+  port: 8091
