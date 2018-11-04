@@ -1,6 +1,7 @@
 # Spring Bean的生命周期
 
-![Bean的生命周期](https://images0.cnblogs.com/i/580631/201405/181453414212066.png)
+![Bean的生命周期1](https://images0.cnblogs.com/i/580631/201405/181453414212066.png)
+![Bean的生命周期2](https://images0.cnblogs.com/i/580631/201405/181454040628981.png)
 
 ## 启动Spring项目顺序
 
